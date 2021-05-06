@@ -17,8 +17,8 @@
     <!-- také nezapomenout na <div> pro výsledek a hodnocení -->
 
     <div class="kviz">
-        <div id="poradi">Otazka <span id="cislo"></span>/4</div>
-        <div id="otazka"></div>
+        <p id="poradi">Otazka <span id="cislo"></span>/4</p>
+        <h2 id="otazka"></h2>
         <div class="obsah">
             <div class="foto">
                 <img src="" alt="">
@@ -34,12 +34,16 @@
         </div>
     </div>
     <div class="vysledek">
-        <!-- <div class='volby'>
-            <h3></h3>
+        <h2>Tvoje hodnocení</h2>
+        <div id='volby'>
+            <!--  <h3></h3>
             <p></p>
-            <p></p>
-       </div>-->
-        <h2></h2>
+            <p></p>-->
+        </div>
+
+        <div id="hodnoceni">
+            <h2>Správne <span class="pocet"></span> ze <span class="total"></span> otázek. Úspěšnost <span class="percento"></span>%</h2>
+        </div>
     </div>
 
     <script src="kviz.js"></script>

@@ -33,6 +33,7 @@ let textOtazky = document.querySelector('#otazka');
 let obrazok = document.querySelector('img');
 let moznosti = document.querySelector('#moznosti');
 let vysledek = document.querySelector('.vysledek');
+let volby = document.querySelector('#volby');
 
 let aktualnaOtazka = 0;
 
@@ -86,11 +87,12 @@ function ukazVysledok() {
     vysledek.style.display = 'block';
     let spravneOdpovede = 0;
 
-    let zobrazVysledok = document.createElement('div');
-
     for (let i = 0; i < kvizOtazky.length; i++) {
+        let zobrazVysledok = document.createElement('div');
+        zobrazVysledok.id = 'volba';
+
         let zobrazOtazku = document.createElement('h3');
-        zobrazOtazku.innerHTML = kvizOtazky[i].otazka;
+        zobrazOtazku.innerHTML = i + 1 + ". " + kvizOtazky[i].otazka;
         zobrazVysledok.appendChild(zobrazOtazku);
 
         let vyber = document.createElement('p');
@@ -106,9 +108,10 @@ function ukazVysledok() {
         } else {
             vyhodnoceni.innerHTML = 'Spravna odpoved: ' + kvizOtazky[i].odpoved;
         }
-        vysledek.appendChild(zobrazVysledok);
+        volby.appendChild(zobrazVysledok);
     }
-
     let vypocet = (spravneOdpovede / kvizOtazky.length) * 100;
-    document.querySelector('.vysledek h2').innerHTML = "Správne " + spravneOdpovede + " ze " + kvizOtazky.length + " otázek.Úspěšnost " + vypocet + "  % .";
+    document.querySelector('.pocet').innerHTML = spravneOdpovede;
+    document.querySelector('.total').innerHTML = kvizOtazky.length;
+    document.querySelector('.percento').innerHTML = vypocet;
 }
